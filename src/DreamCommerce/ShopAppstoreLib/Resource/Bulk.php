@@ -66,7 +66,11 @@ class Bulk extends Resource
                 $responseData = $response['data'];
 
                 foreach ($responseData['items'] as $item) {
-                    $output[$item['id']] = $item['body'];
+                    if (!isset($item['id']) || !isset($item['body'])) {
+                        $output[] = $item['body'];
+                    } else {
+                        $output[$item['id']] = $item['body'];
+                    }
                 }
             }
 
