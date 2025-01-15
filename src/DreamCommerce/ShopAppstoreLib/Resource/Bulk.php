@@ -35,7 +35,7 @@ class Bulk extends Resource
                 $response = $this->client->request($this, 'put', $args, $chunk);
                 $responseData = $response['data'];
 
-                foreach ($responseData['items'] as $item) {
+                foreach ($responseData['items'] as $item) { print_r($item);
                     if (!isset($item['id'])) {
                         $output[] = $item['body'];
                     } else {
